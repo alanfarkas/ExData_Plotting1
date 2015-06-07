@@ -3,11 +3,11 @@
 # into character fields. It is assumed that the input is located in the same directory
 # as this script.
 #
-power_dat <- read.csv("~/ExData_Plotting1/household_power_consumption.txt", sep=";", 
-                      stringsAsFactors = FALSE, na.strings = c("?"),
-                      colClasses = c("character", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric")
-                      )
-
+#power_dat <- read.csv("~/ExData_Plotting1/household_power_consumption.txt", sep=";", 
+#                      stringsAsFactors = FALSE, na.strings = c("?"),
+#                      colClasses = c("character", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric")
+#)
+power_dat <- power_dat1
 
 #
 # Filter data frame down to just data for the dates 2007-02-01 and 2007-02-02
@@ -24,7 +24,7 @@ power_dat <- cbind(Date.Time, power_dat)
 #
 # Draw plot3 (as png) - A line chart with a seperate set of points for each sub-metering type
 #
-png(file = "plot3.png")
+png(file = "plot4.png")
 with(power_dat, {
     plot(Date.Time, Sub_metering_1, type = "l", xlab ="", ylab = "Energy sub metering")
     points(Date.Time, Sub_metering_2, type = "l", col = "red")
