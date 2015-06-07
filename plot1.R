@@ -19,7 +19,7 @@ power_dat <- power_dat0[power_dat$Date == "1/2/2007" | power_dat$Date == "2/2/20
 
 
 #
-# Draw histogram
+# Draw plot1 - histogram
 #
 hist(power_dat$Global_active_power, main = "Gobal Active Power", col = "red", 
         xlab = "Global Acitve Power (kilowatts)")
