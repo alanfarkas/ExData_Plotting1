@@ -25,11 +25,11 @@ power_dat <- cbind(Date.Time, power_dat)
 #
 # Draw plot2 - line chart
 #
-plot(power_dat$Global_active_power, type = "l", 
-        xlab = "Global Acitve Power (kilowatts)")
+plot(power_dat$Global_active_power, weekdays(power_dat$Date.Time), type = "l", 
+        ylab = "Global Acitve Power (kilowatts)")
 
 #
 # Save histogram to png
 #
-dev.copy(png, filename = "plot1.png")
+dev.copy(png, filename = "plot2.png")
 dev.off()

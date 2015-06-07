@@ -13,7 +13,7 @@ power_dat <- read.csv("~/ExData_Plotting1/household_power_consumption.txt", sep=
 #
 # Filter data frame down to just data for the dates 2007-02-01 and 2007-02-02
 #
-power_dat <- power_dat0[power_dat$Date == "1/2/2007" | power_dat$Date == "2/2/2007",]
+power_dat <- power_dat[power_dat$Date == "1/2/2007" | power_dat$Date == "2/2/2007",]
 #power_dat <- power_dat[power_dat$Date == "16/12/2006" || power_dat$Date == "1/2/2007" || power_dat$Date == "2/2/2007",]
 
 
