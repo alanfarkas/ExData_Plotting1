@@ -25,7 +25,7 @@ power_dat <- cbind(Date.Time, power_dat)
 #
 # Draw plot4 (as png) - A line chart with a seperate set of points for each sub-metering type
 #
-#png(file = "plot4.png")
+png(file = "plot4.png")
 par(mfcol = c(2, 2))
 
 #
@@ -47,4 +47,4 @@ legend("topright", pch = "_", col = c("black", "red", "blue"),
        legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
        pt.cex = 0, lwd = 1, bty = "n")
 
-#dev.off()
+dev.off()
