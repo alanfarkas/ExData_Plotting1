@@ -1,6 +1,7 @@
 # 
 # Read power consumption data into data frame, converting the date and time fields
-# into their corrsponding classes
+# into character fields. It is assumed that the input is located in the same directory
+# as this script.
 #
 maxLines = 1000
 power_dat <- read.csv("~/ExData_Plotting1/household_power_consumption.txt", sep=";", 
