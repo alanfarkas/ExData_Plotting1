@@ -5,7 +5,9 @@
 maxLines = 100
 power_dat <- read.csv("~/ExData_Plotting1/household_power_consumption.txt", sep=";", 
                         stringsAsFactors = FALSE,
-                        nrows = maxLines)
+                        colClasses = c("Date", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric")
+                      #  ,nrows = maxLines
+                        )
 
 #
 # Filter data frame down to just data for the dates 2007-02-01 and 2007-02-02
