@@ -3,12 +3,10 @@
 # into character fields. It is assumed that the input is located in the same directory
 # as this script.
 #
-#power_dat <- read.csv("~/ExData_Plotting1/household_power_consumption.txt", sep=";", 
-#                      stringsAsFactors = FALSE, na.strings = c("?"),
-#                      colClasses = c("character", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric")
-#)
-power_dat <- power_dat1
-
+power_dat <- read.csv("~/ExData_Plotting1/household_power_consumption.txt", sep=";", 
+                      stringsAsFactors = FALSE, na.strings = c("?"),
+                      colClasses = c("character", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric")
+                    )
 
 #
 # Filter data frame down to just data for the dates 2007-02-01 and 2007-02-02
@@ -39,7 +37,7 @@ with(power_dat, {
     points(Date.Time, Sub_metering_3, type = "l", col = "blue")
     legend("topright", pch = "_", col = c("black", "red", "blue"), 
             legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
-            pt.cex = 0, lwd = 1, bty = "n")
+            cex = .95, pt.cex = 0, lwd = 1, bty = "n")
     
     # Draw Chart 3 - line chart (Voltage by Time)
     plot(Date.Time, Voltage, type = "l", 
