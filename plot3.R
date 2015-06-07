@@ -22,19 +22,16 @@ Date.Time <- strptime(paste(power_dat$Date, power_dat$Time), format = "%d/%m/%Y 
 power_dat <- cbind(Date.Time, power_dat)
 
 #
-# Draw plot3 - A line chart with a seperate plot for each sub-metering type
+# Draw plot3 (as png) - A line chart with a seperate set of points for each sub-metering type
 #
+png(file = "plot3.png")
 with(power_dat, {
     plot(Date.Time, Sub_metering_1, type = "l", xlab ="", ylab = "Energy sub metering")
     points(Date.Time, Sub_metering_2, type = "l", col = "red")
     points(Date.Time, Sub_metering_3, type = "l", col = "blue")
 })
+legend("topright", pch = "_", col = c("black", "red", "blue"), 
+       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
+       pt.cex = 0, lwd = 1)
 
-legend("topright", pch = "_", col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
-
-
-#
-# Save chart to png
-#
-dev.copy(png, filename = "plot3.png")
 dev.off()
