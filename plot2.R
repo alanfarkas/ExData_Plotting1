@@ -27,7 +27,7 @@ plot(power_dat$Date.Time, power_dat$Global_active_power, type = "l",
         xlab ="", ylab = "Global Acitve Power (kilowatts)")
 
 #
-# Save histogram to png
+# Save chart to png
 #
 dev.copy(png, filename = "plot2.png")
 dev.off()
