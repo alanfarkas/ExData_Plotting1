@@ -24,10 +24,13 @@ power_dat <- cbind(Date.Time, power_dat)
 #
 # Draw plot3 - A line chart with a seperate plot for each sub-metering type
 #
-with(power_dat, plot(power_dat$Date.Time, power_dat$Sub_metering_1, type = "l", xlab ="", ylab = "Energy sub metering"))
+with(power_dat, {
+    plot(Date.Time, Sub_metering_1, type = "l", xlab ="", ylab = "Energy sub metering")
+    points(Date.Time, Sub_metering_2, type = "l", col = "red")
+    points(Date.Time, Sub_metering_3, type = "l", col = "blue")
+})
+
 legend("topright", pch = "_", col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
-#plot(power_dat$Date.Time, power_dat$Global_active_power, type = "l", 
- #    xlab ="", ylab = "Global Acitve Power (kilowatts)")
 
 
 #
