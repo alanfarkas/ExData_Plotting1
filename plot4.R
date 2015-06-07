@@ -25,42 +25,35 @@ power_dat <- cbind(Date.Time, power_dat)
 #
 # Setup plot4 as a png - 4 seperate charts (2 x 2)
 #
-#png(file = "plot4.png")
+png(file = "plot4.png")
 par(mfcol = c(2, 2))
-
-#
-# Draw Chart 1 - line chart (Global Active Power by Time)
-#
-plot(power_dat$Date.Time, power_dat$Global_active_power, type = "l", 
-     xlab ="", ylab = "Global Acitve Power (kilowatts)")
-
-#
-# Draw Chart 2 - line chart (A seperate set of points for each Sub-meteringTtype)
-#
-
 with(power_dat, {
+    
+    # Draw Chart 1 - line chart (Global Active Power by Time)
+    plot(power_dat$Date.Time, power_dat$Global_active_power, type = "l", 
+            xlab ="", ylab = "Global Acitve Power (kilowatts)")
+
+    # Draw Chart 2 - line chart (A seperate set of points for each Sub-meteringTtype)
     plot(Date.Time, Sub_metering_1, type = "l", xlab ="", ylab = "Energy sub metering")
     points(Date.Time, Sub_metering_2, type = "l", col = "red")
     points(Date.Time, Sub_metering_3, type = "l", col = "blue")
+    legend("topright", pch = "_", col = c("black", "red", "blue"), 
+            legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
+            pt.cex = 0, lwd = 1, bty = "n")
+    
+    # Draw Chart 3 - line chart (Voltage by Time)
+    plot(Date.Time, Voltage, type = "l", 
+         xlab ="datetme")
+    
+    # Draw Chart 4 - line chart (Global Reactive Power by Time)
+    plot(Date.Time, Global_reactive_power, type = "l", 
+         xlab ="datetme")
 })
-legend("topright", pch = "_", col = c("black", "red", "blue"), 
-       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
-       pt.cex = 0, lwd = 1, bty = "n")
 
-#
-# Draw Chart 3 - line chart (Voltage by Time)
-#
-plot(power_dat$Date.Time, power_dat$Voltage, type = "l", 
-     xlab ="datetme", ylab = "Voltage")
 
-#
-# Draw Chart 4 - line chart (Global Reactive Power by Time)
-#
-plot(power_dat$Date.Time, power_dat$Global_reactive_power, type = "l", 
-     xlab ="datetme")
 
 #
 # Close png file
 #
-#dev.off()
+dev.off()
 
