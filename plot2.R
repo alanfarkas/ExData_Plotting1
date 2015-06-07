@@ -9,24 +9,28 @@ maxLines = 1000
 #                        colClasses = c("character", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric")
 #                        ,nrows = maxLines
 #                        )
+power_dat <- power_dat1
 
 #
 # Filter data frame down to just data for the dates 2007-02-01 and 2007-02-02
 #
-power_dat <- power_dat0[power_dat$Date == "1/2/2007" | power_dat$Date == "2/2/2007",]
+power_dat <- power_dat[power_dat$Date == "1/2/2007" | power_dat$Date == "2/2/2007",]
 
 
 #
 # Add a "Date.Time" comlumn for the combines the date and time columns
 #
+#Day <- weekdays(strptime(paste(power_dat$Date, power_dat$Time), format = "%d/%m/%Y %H:%M:%S"),
+#                      abbreviate = TRUE)
+#power_dat <- cbind(Day, power_dat)
 Date.Time <- strptime(paste(power_dat$Date, power_dat$Time), format = "%d/%m/%Y %H:%M:%S")
 power_dat <- cbind(Date.Time, power_dat)
 
 #
 # Draw plot2 - line chart
 #
-plot(power_dat$Global_active_power, weekdays(power_dat$Date.Time), type = "l", 
-        ylab = "Global Acitve Power (kilowatts)")
+plot(power_dat$Date.Time, power_dat$Global_active_power, type = "l", 
+        xlab ="", ylab = "Global Acitve Power (kilowatts)")
 
 #
 # Save histogram to png
